@@ -11,7 +11,6 @@ SCRIPT_DIR=$PWD
 START_TIME=$(date +%s)
 MONGODB_HOST=mongodb.zenvyproducts.online
 
-
 mkdir -p $LOGS_FOLDER
 
 echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
