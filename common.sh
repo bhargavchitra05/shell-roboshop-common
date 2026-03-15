@@ -76,7 +76,15 @@ java_setup(){
     VALIDATE $? "Installing and Building shipping"
 
     mv target/$app_name-1.0.jar $app_name.jar 
-    VALIDATE $7 "moving and Renaming shipping"
+    VALIDATE $7 "moving and Renaming $app_name"
+}
+python_setup(){
+    dnf install python3 gcc python3-devel -y &>>$LOGS_FILE
+    VALIDATE $? "Installing Python"
+
+    cd /app 
+    pip3 install -r requirements.txt &>>$LOGS_FILE
+    VALIDATE $? "Installing dependencies"
 }
 
 app_setup(){
