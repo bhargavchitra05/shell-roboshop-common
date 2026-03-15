@@ -9,8 +9,8 @@ Y="\e[33m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
 START_TIME=$(date +%s)
-MONGODB_HOST=mongodb.zenvyproducts.online
-MYSQL_HOST=mysql..zenvyproducts.online
+MONGODB_HOST=mongodb.daws88s.online
+MYSQL_HOST=mysql.daws88s.online
 
 mkdir -p $LOGS_FOLDER
 
@@ -58,26 +58,6 @@ java_setup(){
     VALIDATE $? "Moving and Renaming $app_name"
 }
 
-python_setup(){
-    dnf install python3 gcc python3-devel -y &>>$LOGS_FILE
-    VALIDATE $? "Installing Python"
-
-    cd /app 
-    pip3 install -r requirements.txt &>>$LOGS_FILE
-    VALIDATE $? "Installing dependencies"
-}
-
-java_setup(){
-    dnf install maven -y &>>$LOGS_FILE
-    VALIDATE $7 "Installing Maven"
-
-    cd /app 
-    mvn clean package &>>$LOGS_FILE
-    VALIDATE $? "Installing and Building shipping"
-
-    mv target/$app_name-1.0.jar $app_name.jar 
-    VALIDATE $7 "moving and Renaming $app_name"
-}
 python_setup(){
     dnf install python3 gcc python3-devel -y &>>$LOGS_FILE
     VALIDATE $? "Installing Python"
